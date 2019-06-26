@@ -14,14 +14,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+    private MediaPlaying mediaPlaying;
+    private AudioRecorderManager audioRecorderManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        new MediaRecorderDemo(this).start();
-        new MediaPlaying(this).start();
+        // new MediaPlaying(this).start();
 //        filetest();
 //        is_existing("test.txt");
     }
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         final String EXISTS = "file_exists";
         try {
             File file = new File(Environment.getExternalStorageDirectory(), filename);
-            if(file.exists()) {
+            if (file.exists()) {
                 Log.i(EXISTS, "file is already existing!");
                 file.delete();
             }
@@ -55,9 +55,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void End_collecting(View view) {
+    public void Start_collecting(View view) {
+        mediaPlaying = new MediaPlaying(this);
+        mediaPlaying.start();
+        audioRecorderManager = new AudioRecorderManager();
+        audioRecorderManager.start();
     }
 
-    public void Start_collecting(View view) {
+    public void End_collecting(View view) {
+        mediaPlaying.setEndPlaying();
+        audioRecorderManager.setEndcollecting();
+        Log.i("END！","end for collecting!");
     }
 }
