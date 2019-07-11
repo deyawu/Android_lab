@@ -26,8 +26,8 @@ public class AudioRecorderManager extends Thread{
         audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC, SampleRate,
                 AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, buffersize);
         try {
-            String filename = "test" + new Date().getTime();
-            File file = new File(Environment.getExternalStorageDirectory(), filename);
+            String filename = "/test" + new Date().getTime() + ".pcm";
+            File file = new File(Environment.getExternalStorageDirectory() + filename);
             file.createNewFile();
             if(file == null) {
                 Log.i("filenull", "createNewFile failed !");

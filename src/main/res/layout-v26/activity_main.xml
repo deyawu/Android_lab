@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-<!--
+
     <EditText
         android:id="@+id/result"
         android:layout_width="wrap_content"
@@ -50,5 +50,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/end_collect"
         app:layout_constraintVertical_bias="0.498" />
--->
+
 </android.support.constraint.ConstraintLayout>
